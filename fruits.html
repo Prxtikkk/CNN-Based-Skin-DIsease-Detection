@@ -1,0 +1,115 @@
+{% block content %}
+<style>
+  /* Set a full-screen background image */
+  body::before {
+    background: url("https://wallpaperboat.com/wp-content/uploads/2021/03/17/71823/health-25.jpg") no-repeat center center fixed;
+    content: '';
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  /* General body and content adjustments */
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Transparent background */
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+
+  /* Header Styles */
+  h2 {
+    font-size: 3rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+
+  /* Image section */
+  .image-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .image-section img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Result labels */
+  .result-label {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+  }
+
+  .result-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4CAF50; /* Green for positive health */
+  }
+
+  /* Button Styles */
+  .btn-dark {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-dark:hover {
+    background-color: #495057;
+  }
+
+</style>
+
+<body>
+<br>
+<div class="container">
+  <!-- Simple Form -->
+  <h2 class="my-4">Skin Disease Detection</h2>
+
+  {% if file_url %}
+    <div class="image-section">
+      <img src="{{ file_url }}" class="img-fluid" alt="Uploaded Image">
+      <img src="media/grey.jpeg" alt="Grey Image">
+      <img src="media/binary.jpeg" alt="Binary Image">
+    </div>
+    <a class="btn btn-dark my-4" href="/">Return to Homepage</a>
+  {% else %}
+    <p class="result-label" style="color:red;">No Image Selected.</p>
+  {% endif %}
+
+  <div class="result-label">
+    <p>Detected Result: <span class="result-value">{{ predictions1 }}</span></p>
+    <p><span class="result-value">{{ ans1 }}</span></p> 
+  </div>
+
+</div>
+
+</body>
+{% endblock %}
