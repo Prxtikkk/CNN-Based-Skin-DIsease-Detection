@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../media"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../skin dataset"
+		},
+		{
+			"path": "../templates"
+		}
+	]
+}
